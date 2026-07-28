@@ -20,7 +20,7 @@ export default function UserManagePage() {
     if (!confirm(`确定删除用户「${username}」？`)) return
     try {
       await request.delete(`/users/${id}`)
-      setUsers(users.filter(u => u.id !== id))
+      setUsers(prev => prev.filter(u => u.id !== id))
     } catch { /* interceptor handles */ }
   }
 

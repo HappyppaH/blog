@@ -22,7 +22,7 @@ export default function ArticleManagePage() {
     if (!confirm(`确定删除文章「${title}」？`)) return
     try {
       await request.delete(`/articles/${id}`)
-      setArticles(articles.filter(a => a.id !== id))
+      setArticles(prev => prev.filter(a => a.id !== id))
     } catch { /* interceptor handles */ }
   }
 
